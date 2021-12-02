@@ -58,11 +58,17 @@ namespace Cowsay
 
         private string GenerateMultiLineBubble(string phrase, int maxCols)
         {
-            List<string> lines = new List<string>();
+            int lineNumber = 0;
+            StringBuilder stringBuilder = new StringBuilder();
 
-            foreach (var inputLine in phrase.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            stringBuilder.AppendLine(" " + string.Empty.PadRight(maxCols + 3, '_') + " ");
+
+            string[] phrases = phrase.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToArray();
+            int phraseNumber = 1;
+
+            foreach (var inputLine in phrases)
             {
-                string[] words = inputLine.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                string[] words = inputLine.Split(new[] { " " }, StringSplitOptions.None);
 
                 string currentLine = string.Empty;
 
@@ -74,38 +80,54 @@ namespace Cowsay
                     }
                     else
                     {
-                        lines.Add(currentLine.PadRight(maxCols + 2));
+                        lineNumber++;
+
+                        stringBuilder.AppendLine(GetPrefix(lineNumber) + " " + currentLine.PadRight(maxCols + 2) + GetSuffix(lineNumber));
                         currentLine = word;
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(currentLine))
+                if (phraseNumber == phrases.Length)
                 {
-                    lines.Add(currentLine.PadRight(maxCols + 2));
+                    stringBuilder.AppendLine("\\" + " " + currentLine.PadRight(maxCols + 2) + "/");
                 }
+                else
+                {
+                    lineNumber++;
+
+                    stringBuilder.AppendLine(GetPrefix(lineNumber) + " " + currentLine.PadRight(maxCols + 2) + GetSuffix(lineNumber));
+                }
+
+                phraseNumber++;
             }
 
-            for (int lineNumber = 0; lineNumber < lines.Count; lineNumber++)
+            stringBuilder.Append(" " + string.Empty.PadRight(maxCols + 3, '-') + " ");
+
+            return stringBuilder.ToString();
+        }
+
+        private string GetPrefix(int lineNumber)
+        {
+            string prefix = "|";
+
+            if (lineNumber == 1)
             {
-                if (lineNumber == 0)
-                {
-                    lines[0] = "/ " + lines[0] + " \\";
-                    continue;
-                }
-
-                if (lineNumber == lines.Count - 1)
-                {
-                    lines[lineNumber] = "\\ " + lines[lineNumber] + " /";
-                    continue;
-                }
-
-                lines[lineNumber] = "| " + lines[lineNumber] + " |";
+                prefix = "/";
             }
 
-            lines.Insert(0, " " + string.Empty.PadRight(maxCols + 3, '_') + " ");
-            lines.Add(" " + string.Empty.PadRight(maxCols + 3, '-') + " ");
+            return prefix;
+        }
 
-            return string.Join(Environment.NewLine, lines);
+        private string GetSuffix(int lineNumber)
+        {
+            string suffix = "|";
+
+            if (lineNumber == 1)
+            {
+                suffix = "\\";
+            }
+
+            return suffix;
         }
     }
 }
