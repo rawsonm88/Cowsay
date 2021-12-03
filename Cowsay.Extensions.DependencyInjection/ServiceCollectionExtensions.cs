@@ -1,7 +1,7 @@
-﻿using Cowsay.Abstractions;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Cowsay;
+using Cowsay.Abstractions;
 
-namespace Cowsay.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {

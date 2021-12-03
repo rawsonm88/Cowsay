@@ -1,4 +1,6 @@
 ﻿using Cowsay;
+using Cowsay.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 var factory = new DefaultCattleFarmer(new EmbeddedCowFormatProvider(), new DefaultBubbleBlower());
 
@@ -23,3 +25,12 @@ Console.WriteLine(staticCow.Say("I'm a static cow, no DI needed."));
 
 Console.WriteLine(cow.Say("Short thought", isThought: true));
 Console.WriteLine(cow.Say("Integer ullamcorper molestie nisi, in blandit sapien tempus non. Pellentesque pulvinar sed purus at ultrices. Quisque posuere ligula nec ante varius tristique.", isThought: true));
+
+IServiceCollection services = new ServiceCollection();
+services.AddCowsay();
+var provider = services.BuildServiceProvider();
+
+var farmer = provider.GetRequiredService<ICattleFarmer>();
+
+var cowFromDI = await farmer.RearCowAsync("bearface");
+Console.WriteLine(cowFromDI.Say("I was reared on dependency injection."));
