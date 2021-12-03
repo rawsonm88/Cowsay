@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Cowsay\Cowsay.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="wealthify.cow">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Cows\wealthify.cow" />
+    <ProjectReference Include="..\Cowsay.Abstractions\Cowsay.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
