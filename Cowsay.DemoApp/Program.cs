@@ -11,7 +11,9 @@ Console.WriteLine(cow.Say("Integer ullamcorper molestie nisi, in blandit sapien 
 
 Console.WriteLine(cow.Say("Hiya"));
 
-Console.WriteLine(cow.Say("Environment".PadRight(20) + "UAT" + Environment.NewLine + "Service".PadRight(20) + "Holdings", cowEyes: "++"));
+Console.WriteLine(cow.Say("Environment".PadRight(20) + "Production"
+    + Environment.NewLine + "Service".PadRight(20) + "Order"
+    + Environment.NewLine + "Node".PadRight(20) + "lin-1234562", cowEyes: "++"));
 
 using (var stream = File.OpenRead("wealthify.cow"))
 {

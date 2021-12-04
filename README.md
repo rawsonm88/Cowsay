@@ -15,7 +15,20 @@
 
 cowsay is a configurable talking cow, originally written in Perl by [Tony Monroe](https://github.com/tnalpgge/rank-amateur-cowsay)
 
-This project is a translation in C#/.NET of the original program.
+This project is a translation in C#/.NET of the original program, this has been written as a library rather than a standalone executable so it can easily be integrated into your own projects - for example a startup splashscreen for a CLI app.
+
+```
+ _________________________________
+/ Environment         Production  \
+| Service             Order       |
+\ Node                lin-1234562 /
+ ---------------------------------
+        \   ^__^
+         \  (++)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
 
 The [`.cow` files](Cowsay/Cows) were manually copied from https://github.com/piuccio/cowsay.
 
