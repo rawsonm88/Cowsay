@@ -31,6 +31,6 @@ jobs:
         outputFormat: 'lcov'
         threshold: 100
     - name: Push generated package to GitHub registry
-      run: dotnet nuget push ./**/*${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./**/*${{ github.event.release.tag_name }}*.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
 
 
