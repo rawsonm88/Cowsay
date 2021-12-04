@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Cowsay
 {
+    /// <inheritdoc cref="IBubbleBlower" />
     public class DefaultBubbleBlower : IBubbleBlower
     {
         public string GetBubble(string phrase, int maxCols, bool isThoughtBubble)

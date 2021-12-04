@@ -33,7 +33,7 @@ namespace Cowsay.UnitTests
             var bubbleGenerator = Substitute.For<IBubbleBlower>();
 
             bubbleGenerator
-                .GetBubble("Hello world", 10, thoughtBubble: true)
+                .GetBubble("Hello world", 10, isThought: true)
                 .Returns("<A bubble>");
 
             var cow = new Cow(cowFormat: format, bubbleGenerator);
