@@ -1,4 +1,4 @@
-# cowsay
+# cowsay (.NET)
 
 ````
  __________________
@@ -14,6 +14,8 @@
 cowsay is a configurable talking cow, originally written in Perl by [Tony Monroe](https://github.com/tnalpgge/rank-amateur-cowsay)
 
 This project is a translation in C#/.NET of the original program.
+
+The [`.cow` files](Cowsay/Cows) were manually copied from https://github.com/piuccio/cowsay.
 
 ## Install
 
@@ -31,22 +33,22 @@ dotnet add package Cowsay
 ## Usage
 
 ### With .NET DI
-```
+```C#
 public class MyClass
 {
-	private ICattleFarmer _cattleFarmer;
+    private ICattleFarmer _cattleFarmer;
 
-	public MyClass(ICattleFarmer cattleFarmer)
-	{
-		_cattleFarmer = cattleFarmer;
-	}
+    public MyClass(ICattleFarmer cattleFarmer)
+    {
+       _cattleFarmer = cattleFarmer;
+    }
 
-	public async Task DoThing()
-	{
-		var myCow = await cattleFarmer.RearCowAsync("bearface");
+    public async Task DoThing()
+    {
+       var myCow = await cattleFarmer.RearCowAsync("bearface");
 
-		Console.WriteLine(myCow.Say("I was reared on dependency injection.");
-	}
+       Console.WriteLine(myCow.Say("I was reared on dependency injection.");
+    }
 }
 ```
 
@@ -55,25 +57,18 @@ public class MyClass
  _______________________________________
 < I was reared on dependency injection. >
  ---------------------------------------
- \
-  \
-     .--.              .--.
-    : (\ ". _......_ ." /) :
-     '.    `        `    .'
-      /'   _        _   `\
-     /     o}      {o     \
-    |       /      \       |
-    |     /'        `\     |
-     \   | .  .==.  . |   /
-      '._ \.' \__/ './ _.'
-      /  ``'._-''-_.'``  \
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
 ```
 
 ### Without .NET DI
-```
+```C#
 var staticCow = await DefaultCattleFarmer.RearCowWithDefaults("default");
 
-Console.WriteLine(staticCow.Say("I'm a static cow, no DI needed."));
+Console.WriteLine(staticCow.Say("I'm a static cow, no DI needed.", cowEyes: "xx"));
 ```
 
 #### Output
@@ -82,7 +77,7 @@ Console.WriteLine(staticCow.Say("I'm a static cow, no DI needed."));
 < I'm a static cow, no DI needed. >
  ---------------------------------
         \   ^__^
-         \  (oo)\_______
+         \  (xx)\_______
             (__)\       )\/\
                 ||----w |
                 ||     ||
