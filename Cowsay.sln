@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay", "Cowsay\Cowsay.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.UnitTests", "Cowsay.UnitTests\Cowsay.UnitTests.csproj", "{F9377760-234C-43B0-8284-BECA2A4F3D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.Abstractions", "Cowsay.Abstractions\Cowsay.Abstractions.csproj", "{C20FDF66-2B95-4FEB-8304-3BD7948FB396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Abstractions", "Cowsay.Abstractions\Cowsay.Abstractions.csproj", "{C20FDF66-2B95-4FEB-8304-3BD7948FB396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.Extensions.DependencyInjection", "Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj", "{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.DemoApp", "Cowsay.DemoApp\Cowsay.DemoApp.csproj", "{19417EAC-9464-4CF3-9DC0-21BA6A6DFC0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Extensions.DependencyInjection", "Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj", "{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19417EAC-9464-4CF3-9DC0-21BA6A6DFC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19417EAC-9464-4CF3-9DC0-21BA6A6DFC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19417EAC-9464-4CF3-9DC0-21BA6A6DFC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19417EAC-9464-4CF3-9DC0-21BA6A6DFC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
