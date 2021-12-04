@@ -64,7 +64,7 @@ public class MyClass
 
     public async Task DoThing()
     {
-       var myCow = await cattleFarmer.RearCowAsync("bearface");
+       var myCow = await cattleFarmer.RearCowAsync("default");
 
        Console.WriteLine(myCow.Say("I was reared on dependency injection.");
     }
