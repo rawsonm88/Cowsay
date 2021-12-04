@@ -11,7 +11,7 @@
                 ||     ||
 ````
 
-[![.NET](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml) [![Coverage Status](https://coveralls.io/repos/github/rawsonm88/Cowsay/badge.svg?branch=master)](https://coveralls.io/github/rawsonm88/Cowsay?branch=master)
 
 cowsay is a configurable talking cow, originally written in Perl by [Tony Monroe](https://github.com/tnalpgge/rank-amateur-cowsay)
 
