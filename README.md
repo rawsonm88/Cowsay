@@ -49,6 +49,10 @@ dotnet add package Cowsay
 
 ### With .NET DI
 ```C#
+services.AddCowsay();
+```
+
+```C#
 public class MyClass
 {
     private ICattleFarmer _cattleFarmer;
