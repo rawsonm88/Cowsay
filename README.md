@@ -11,6 +11,8 @@
                 ||     ||
 ````
 
+[![.NET](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/rawsonm88/Cowsay/actions/workflows/dotnet.yml)
+
 cowsay is a configurable talking cow, originally written in Perl by [Tony Monroe](https://github.com/tnalpgge/rank-amateur-cowsay)
 
 This project is a translation in C#/.NET of the original program.
