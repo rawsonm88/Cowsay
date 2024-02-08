@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<Authors>Mark Rawson</Authors>
 		<Description>The dependency injection extension method(s) to add a configurable talking cow to your .NET Core DI container.</Description>
 		<PackageProjectUrl>https://github.com/rawsonm88/Cowsay</PackageProjectUrl>
@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -21,8 +21,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\LICENSE" Pack="true" PackagePath=""/>
-		<None Include="..\README.md" Pack="true" PackagePath=""/>
+		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>
