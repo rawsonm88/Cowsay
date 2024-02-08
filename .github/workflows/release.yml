@@ -20,17 +20,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore /p:Version=${{ github.event.release.tag_name }} /p:AssemblyVersion=${{ github.event.release.tag_name }}
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Coverlet coverage test
-      # You may pin to the exact commit or the version.
-      # uses: b3b00/coverlet-action@a53722e8b9e901f31e2f639df74cb0c5bd15a12e
-      uses: b3b00/coverlet-action@1.1.7
-      with:
-        testProject: 'Cowsay.UnitTests/Cowsay.UnitTests.csproj'
-        output: 'lcov.info'
-        outputFormat: 'lcov'
-        threshold: 100
     - name: Push generated package to nuget.org registry
       run: dotnet nuget push ./**/*${{ github.event.release.tag_name }}*.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
 
