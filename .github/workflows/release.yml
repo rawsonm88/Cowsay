@@ -21,6 +21,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore /p:Version=${{ github.event.release.tag_name }} /p:AssemblyVersion=${{ github.event.release.tag_name }}
     - name: Push generated package to nuget.org registry
-      run: dotnet nuget push ./**/*${{ github.event.release.tag_name }}*.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./**/*${{ github.event.release.tag_name }}*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
 
 
