@@ -1,15 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
 		<Authors>Mark Rawson</Authors>
 		<Description>A configurable talking cow.</Description>
 		<PackageProjectUrl>https://github.com/rawsonm88/Cowsay</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/rawsonm88/Cowsay/</RepositoryUrl>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>Cowsay</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<OutputType>Exe</OutputType>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>cowsay</ToolCommandName>
 	</PropertyGroup>
 
 	<ItemGroup>
