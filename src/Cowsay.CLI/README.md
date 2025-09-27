@@ -21,9 +21,15 @@ This CLI tool is part of the Cowsay .NET project - a C#/.NET translation of the 
 
 ## Installation
 
-### From NuGet (when published)
+### From NuGet
 ```bash
 dotnet tool install --global Cowsay.CLI
+```
+
+### Using dnx (.NET 10+)
+With .NET 10 or later, you can run the tool without installing it:
+```bash
+dnx Cowsay.CLI "Hello, World!"
 ```
 
 ## Usage
