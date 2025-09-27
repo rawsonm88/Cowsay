@@ -1,12 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
 using CommandLine;
 using CommandLine.Text;
 using Cowsay.Abstractions;
 
 namespace Cowsay.CLI;
 
-class Program
+public class Program
 {
-    static async Task<int> Main(string[] args)
+    public static async Task<int> Main(string[] args)
     {
         var parser = new Parser(with => with.HelpWriter = null);
         var parserResult = parser.ParseArguments<Options>(args);

@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI", "src\Cowsay.CL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI.Tests", "tests\Cowsay.CLI.Tests\Cowsay.CLI.Tests.csproj", "{21A79425-1369-4E6C-A597-BD27F897E91B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{98E17035-795D-49A3-BD46-D2D4D6667169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.Extensions.DependencyInjection.Tests", "tests\Cowsay.Extensions.DependencyInjection.Tests\Cowsay.Extensions.DependencyInjection.Tests.csproj", "{95C50E89-EC80-43A1-B63C-DA08615CC30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,11 +49,20 @@ Global
 		{21A79425-1369-4E6C-A597-BD27F897E91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21A79425-1369-4E6C-A597-BD27F897E91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21A79425-1369-4E6C-A597-BD27F897E91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C50E89-EC80-43A1-B63C-DA08615CC30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C50E89-EC80-43A1-B63C-DA08615CC30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C50E89-EC80-43A1-B63C-DA08615CC30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C50E89-EC80-43A1-B63C-DA08615CC30F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0059EE8-BDAB-400B-BA53-C0FFC5387E7D}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95C50E89-EC80-43A1-B63C-DA08615CC30F} = {98E17035-795D-49A3-BD46-D2D4D6667169}
+		{21A79425-1369-4E6C-A597-BD27F897E91B} = {98E17035-795D-49A3-BD46-D2D4D6667169}
+		{F9377760-234C-43B0-8284-BECA2A4F3D1D} = {98E17035-795D-49A3-BD46-D2D4D6667169}
 	EndGlobalSection
 EndGlobal
