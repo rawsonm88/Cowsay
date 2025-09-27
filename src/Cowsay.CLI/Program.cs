@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using CommandLine;
 using CommandLine.Text;
 using Cowsay.Abstractions;
@@ -83,7 +84,8 @@ public class Program
 
         if (isVersionRequest)
         {
-            Console.WriteLine("cowsay 1.0.0");
+            var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "1.0.0";
+            Console.WriteLine($"cowsay {version}");
             return await Task.FromResult(0);
         }
 
