@@ -39,6 +39,11 @@ The [`.cow` files](Cowsay/Cows) were manually copied from https://github.com/piu
 dotnet tool install -g Cowsay.CLI
 ```
 
+Or with .NET 10+ you can run it directly without installation:
+```
+dnx Cowsay.CLI "Hello, World!"
+```
+
 See the [CLI documentation](src/Cowsay.CLI/README.md) for usage instructions.
 
 ### Library - With .NET DI
