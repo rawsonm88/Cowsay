@@ -15,7 +15,7 @@
 
 cowsay is a configurable talking cow, originally written in Perl by [Tony Monroe](https://github.com/tnalpgge/rank-amateur-cowsay)
 
-This project is a translation in C#/.NET of the original program, this has been written as a library rather than a standalone executable so it can easily be integrated into your own projects - for example a startup splashscreen for a CLI app.
+This project is a translation in C#/.NET of the original program. It includes both a library for easy integration into your own projects (for example a startup splashscreen for a CLI app) and a standalone CLI tool.
 
 ```
  _________________________________
@@ -34,18 +34,25 @@ The [`.cow` files](Cowsay/Cows) were manually copied from https://github.com/piu
 
 ## Install
 
-### With .NET DI
+### CLI Tool
+```
+dotnet tool install -g Cowsay.CLI
+```
+
+See the [CLI documentation](src/Cowsay.CLI/README.md) for usage instructions.
+
+### Library - With .NET DI
 ```
 dotnet add package Cowsay
 dotnet add package Cowsay.Extensions.DependencyInjection
 ```
 
-### Without .NET DI
+### Library - Without .NET DI
 ```
 dotnet add package Cowsay
 ```
 
-## Usage
+## Library Usage
 
 ### With .NET DI
 ```C#
