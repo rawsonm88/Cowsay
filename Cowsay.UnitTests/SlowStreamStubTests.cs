@@ -1,5 +1,5 @@
 ﻿using Cowsay.UnitTests.Stubs;
-using FluentAssertions;
+using Shouldly;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
@@ -28,7 +28,7 @@ namespace Cowsay.UnitTests
 
                     await Task.Delay(100);
 
-                    slowStream.ThreadsReadingCount.Should().Be(threads);
+                    slowStream.ThreadsReadingCount.ShouldBe(threads);
                 }
             }
         }

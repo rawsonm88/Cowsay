@@ -1,0 +1,28 @@
+using CommandLine;
+
+namespace Cowsay.CLI;
+
+public class Options
+{
+    [Value(0, MetaName = "MESSAGE", HelpText = "The message for the cow to say (or pipe from stdin)")]
+    public string Message { get; set; } = string.Empty;
+
+    [Option('l', "list", HelpText = "List all available cow formats")]
+    public bool List { get; set; }
+
+    [Option('c', "cow", Default = "default", HelpText = "Choose a cow format (use -l to see all)")]
+    public string Cow { get; set; } = "default";
+
+    [Option('e', "eyes", HelpText = "Set the cow's eyes (2 chars, e.g., '@@', 'xx', '$$')")]
+    public string? Eyes { get; set; }
+
+    [Option('t', "tongue", HelpText = "Set the cow's tongue (2 chars, e.g., 'U ', '~ ')")]
+    public string? Tongue { get; set; }
+
+    [Option('w', "wrap", HelpText = "Wrap text at N columns (default: 40)")]
+    public int? Wrap { get; set; }
+
+    [Option('T', "think", HelpText = "Make the cow think instead of say")]
+    public bool Think { get; set; }
+
+}

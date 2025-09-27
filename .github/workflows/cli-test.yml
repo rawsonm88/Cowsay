@@ -1,0 +1,79 @@
+name: CLI Tool Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+    paths:
+      - 'Cowsay.CLI/**'
+      - 'Cowsay/**'
+      - 'Cowsay.Abstractions/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'Cowsay.CLI/**'
+      - 'Cowsay/**'
+      - 'Cowsay.Abstractions/**'
+
+jobs:
+  test-cli:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        dotnet: [6.0.x, 7.0.x, 8.0.x]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+
+    - name: Build CLI tool
+      run: dotnet build Cowsay.CLI/Cowsay.CLI.csproj --configuration Release
+
+    - name: Pack CLI tool
+      run: dotnet pack Cowsay.CLI/Cowsay.CLI.csproj --configuration Release --no-build
+
+    - name: Install CLI tool globally
+      run: dotnet tool install --global --add-source ./Cowsay.CLI/nupkg Cowsay.CLI
+
+    - name: Test basic usage
+      run: |
+        cowsay "Hello from ${{ matrix.os }} on .NET ${{ matrix.dotnet }}!"
+        cowsay --version
+        cowsay --help
+
+    - name: Test piped input (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        echo "Piped message test" | cowsay
+        echo "Think test" | cowsay -T
+
+    - name: Test piped input (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        echo "Piped message test" | cowsay
+        echo "Think test" | cowsay -T
+      shell: cmd
+
+    - name: Test custom parameters
+      run: |
+        cowsay -e @@ "Custom eyes"
+        cowsay -t U "Custom tongue"
+        cowsay -w 20 "This is a long message that should wrap at 20 columns"
+        cowsay -T "I'm thinking..."
+
+    - name: Test list cows
+      run: cowsay -l
+
+    - name: Test different cows
+      run: |
+        cowsay -c tux "Hello from Tux!"
+        cowsay -c stegosaurus "Prehistoric message"
+
+    - name: Uninstall CLI tool
+      run: dotnet tool uninstall --global Cowsay.CLI

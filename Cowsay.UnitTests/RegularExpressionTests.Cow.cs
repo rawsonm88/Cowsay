@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
@@ -16,7 +16,7 @@ namespace Cowsay.UnitTests
             var match = RegularExpressions.Cow.Match(cowFile);
 
             var expectedOutput = await File.ReadAllTextAsync(Path.Combine("ExpectedOutputCows", expectedOutputFileName));
-            match.Groups["cow"].Value.Should().Be(expectedOutput);
+            match.Groups["cow"].Value.ShouldBe(expectedOutput);
         }
     }
 }

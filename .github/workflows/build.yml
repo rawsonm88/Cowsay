@@ -49,6 +49,13 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Pack CLI tool
+      run: dotnet pack Cowsay.CLI/Cowsay.CLI.csproj --no-build --configuration Release
+    - name: Test CLI tool installation locally
+      run: |
+        dotnet tool install --global --add-source ./Cowsay.CLI/nupkg Cowsay.CLI
+        cowsay "Build test successful!"
+        dotnet tool uninstall --global Cowsay.CLI
     - name: Coverlet coverage test
       # You may pin to the exact commit or the version.
       # uses: b3b00/coverlet-action@a53722e8b9e901f31e2f639df74cb0c5bd15a12e

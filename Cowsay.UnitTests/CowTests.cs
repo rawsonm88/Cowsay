@@ -1,5 +1,5 @@
 ﻿using Cowsay.Abstractions;
-using FluentAssertions;
+using Shouldly;
 using NSubstitute;
 using Xunit;
 
@@ -22,7 +22,7 @@ namespace Cowsay.UnitTests
 
             var output = cow.Say("Hello world", cowEyes: "AB", cowTongue: "CD", maxCols: 10, isThought: false);
 
-            output.Should().Be(expectedOutput);
+            output.ShouldBe(expectedOutput);
         }
 
         [Theory]
@@ -40,7 +40,7 @@ namespace Cowsay.UnitTests
 
             var output = cow.Say("Hello world", cowEyes: "AB", cowTongue: "CD", maxCols: 10, isThought: true);
 
-            output.Should().Be(expectedOutput);
+            output.ShouldBe(expectedOutput);
         }
     }
 }

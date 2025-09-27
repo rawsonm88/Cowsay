@@ -1,5 +1,5 @@
 ﻿using Cowsay.Abstractions;
-using FluentAssertions;
+using Shouldly;
 using NSubstitute;
 using System.IO;
 using System.Text;
@@ -22,7 +22,7 @@ namespace Cowsay.UnitTests
 
             var cow = await factory.RearCowAsync("default");
 
-            cow.Format.Should().Be("abc$eyedef");
+            cow.Format.ShouldBe("abc$eyedef");
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace Cowsay.UnitTests
 
                 var cow = await factory.RearCowFromFileStreamAsync(memoryStream);
 
-                cow.Format.Should().Be("Hello$eye$eye");
+                cow.Format.ShouldBe("Hello$eye$eye");
             }
         }
 
@@ -43,7 +43,7 @@ namespace Cowsay.UnitTests
         {
             var cow = await DefaultCattleFarmer.RearCowWithDefaults("default");
 
-            cow.Format.Should().Be(await File.ReadAllTextAsync(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
+            cow.Format.ShouldBe(await File.ReadAllTextAsync(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
         }
     }
 }

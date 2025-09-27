@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Xunit;
-using FluentAssertions;
+using Shouldly;
 using System.IO;
 using Cowsay.UnitTests.Stubs;
 
@@ -16,7 +16,7 @@ namespace Cowsay.UnitTests
 
             var format = await cowFile.GetCowFormatAsync();
 
-            format.Should().Be(File.ReadAllText(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
+            format.ShouldBe(File.ReadAllText(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Cowsay.UnitTests
                 format = await cowFile.GetCowFormatAsync();
             }
 
-            format.Should().Be(File.ReadAllText(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
+            format.ShouldBe(File.ReadAllText(Path.Combine("ExpectedOutputCows", "default_cleaned.txt")));
         }
 
         [Fact]
@@ -38,8 +38,8 @@ namespace Cowsay.UnitTests
         {
             var cowFile = new CowFile("not a cow");
 
-            await cowFile.Invoking(c => c.GetCowFormatAsync())
-                .Should().ThrowAsync<ArgumentException>();
+            await Should.ThrowAsync<ArgumentException>(
+                async () => await cowFile.GetCowFormatAsync());
         }
 
         [Fact]
@@ -60,11 +60,11 @@ namespace Cowsay.UnitTests
 
                 await Task.Delay(100);
 
-                slowStream.ThreadsReadingCount.Should().Be(1);
+                slowStream.ThreadsReadingCount.ShouldBe(1);
 
                 await Task.WhenAll(tasks);
 
-                tasks.Should().OnlyContain(f => f.Result == expectedFormat);
+                tasks.ShouldAllBe(f => f.Result == expectedFormat);
             }
         }
     }

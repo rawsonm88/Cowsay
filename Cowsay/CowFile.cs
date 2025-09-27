@@ -27,13 +27,13 @@ namespace Cowsay
         {
             if (!_stringLoaded)
             {
-                await _streamLock.WaitAsync();
+                await _streamLock.WaitAsync().ConfigureAwait(false);
 
                 try
                 {
                     if (!_stringLoaded)
                     {
-                        _fileContents = await _fileStream.ConvertToStringAsync(leaveOpen: true);
+                        _fileContents = await _fileStream.ConvertToStringAsync(leaveOpen: true).ConfigureAwait(false);
                         _stringLoaded = true;
                     }
                 }

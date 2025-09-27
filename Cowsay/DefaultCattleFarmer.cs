@@ -27,15 +27,15 @@ namespace Cowsay
 
         public async Task<ICow> RearCowAsync(string cowName)
         {
-            string cowFormat = await _cowFormatProvider.GetCowFormatAsync(cowName);
+            string cowFormat = await _cowFormatProvider.GetCowFormatAsync(cowName).ConfigureAwait(false);
 
             return new Cow(cowFormat, _bubbleBlower);
         }
 
         public async Task<ICow> RearCowFromFileStreamAsync(Stream cowStream)
         {
-            var cowFile = new CowFile(await cowStream.ConvertToStringAsync(leaveOpen: true));
-            return new Cow(await cowFile.GetCowFormatAsync(), _bubbleBlower);
+            var cowFile = new CowFile(await cowStream.ConvertToStringAsync(leaveOpen: true).ConfigureAwait(false));
+            return new Cow(await cowFile.GetCowFormatAsync().ConfigureAwait(false), _bubbleBlower);
         }
     }
 }

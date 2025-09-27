@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>cowsay</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<Authors>Mark Rawson</Authors>
+		<Description>A configurable talking cow CLI tool.</Description>
+		<PackageProjectUrl>https://github.com/rawsonm88/Cowsay</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/rawsonm88/Cowsay/</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommandLineParser" Version="2.9.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Cowsay\Cowsay.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+        <None Include=".\README.md" Pack="true" PackagePath=""/>
+		<None Include="..\LICENSE" Pack="true" PackagePath=""/>
+	</ItemGroup>
+
+</Project>

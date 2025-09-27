@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Abstractions", "Cows
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Extensions.DependencyInjection", "Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj", "{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI", "Cowsay.CLI\Cowsay.CLI.csproj", "{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI.Tests", "Cowsay.CLI.Tests\Cowsay.CLI.Tests.csproj", "{21A79425-1369-4E6C-A597-BD27F897E91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A79425-1369-4E6C-A597-BD27F897E91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A79425-1369-4E6C-A597-BD27F897E91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A79425-1369-4E6C-A597-BD27F897E91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A79425-1369-4E6C-A597-BD27F897E91B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using Xunit;
 
 namespace Cowsay.UnitTests
@@ -14,7 +14,7 @@ namespace Cowsay.UnitTests
         {
             string output = RegularExpressions.LineEndings.Replace(input, replacement);
 
-            output.Should().Be(expectedOutput);
+            output.ShouldBe(expectedOutput);
         }
 
         [Theory]
@@ -26,7 +26,7 @@ namespace Cowsay.UnitTests
         {
             string output = RegularExpressions.LineEndings.Replace(input, replacement);
 
-            output.Should().Be(input);
+            output.ShouldBe(input);
         }
     }
 }
