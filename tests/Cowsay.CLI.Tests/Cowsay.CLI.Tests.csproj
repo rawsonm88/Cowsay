@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Cowsay.CLI\Cowsay.CLI.csproj" />
+		<ProjectReference Include="..\..\src\Cowsay.CLI\Cowsay.CLI.csproj" />
 	</ItemGroup>
 
 </Project>

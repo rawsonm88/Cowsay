@@ -50,10 +50,10 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal
     - name: Pack CLI tool
-      run: dotnet pack Cowsay.CLI/Cowsay.CLI.csproj --configuration Release --no-build
+      run: dotnet pack src/Cowsay.CLI/Cowsay.CLI.csproj --configuration Release --no-build
     - name: Test CLI tool installation locally
       run: |
-        dotnet tool install --global --add-source ./Cowsay.CLI/nupkg Cowsay.CLI
+        dotnet tool install --global --add-source ./src/Cowsay.CLI/nupkg Cowsay.CLI
         cowsay "Build test successful!"
         dotnet tool uninstall --global Cowsay.CLI
     - name: Coverlet coverage test
@@ -61,7 +61,7 @@ jobs:
       # uses: b3b00/coverlet-action@a53722e8b9e901f31e2f639df74cb0c5bd15a12e
       uses: b3b00/coverlet-action@1.2.9
       with:
-        testProject: 'Cowsay.UnitTests/Cowsay.UnitTests.csproj'
+        testProject: 'tests/Cowsay.UnitTests/Cowsay.UnitTests.csproj'
         output: 'lcov.info'
         outputFormat: 'lcov'
         threshold: 100
@@ -73,7 +73,7 @@ jobs:
         # 
         github-token: ${{ secrets.GITHUB_TOKEN }}
         # Path to lcov file
-        path-to-lcov: ./Cowsay.UnitTests/lcov.info # default is ./coverage/lcov.info
+        path-to-lcov: ./tests/Cowsay.UnitTests/lcov.info # default is ./coverage/lcov.info
         # Job flag name, e.g. "Unit", "Functional", or "Integration". Will be shown in the Coveralls UI.
         flag-name: Unit # optional
         # Set to true if you are running parallel jobs, then use "parallel_finished: true" for the last action.

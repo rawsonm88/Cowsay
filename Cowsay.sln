@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay", "Cowsay\Cowsay.csproj", "{E90E9435-E6D1-4058-A972-763ADE7F1435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay", "src\Cowsay\Cowsay.csproj", "{E90E9435-E6D1-4058-A972-763ADE7F1435}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.UnitTests", "Cowsay.UnitTests\Cowsay.UnitTests.csproj", "{F9377760-234C-43B0-8284-BECA2A4F3D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.UnitTests", "tests\Cowsay.UnitTests\Cowsay.UnitTests.csproj", "{F9377760-234C-43B0-8284-BECA2A4F3D1D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Abstractions", "Cowsay.Abstractions\Cowsay.Abstractions.csproj", "{C20FDF66-2B95-4FEB-8304-3BD7948FB396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Abstractions", "src\Cowsay.Abstractions\Cowsay.Abstractions.csproj", "{C20FDF66-2B95-4FEB-8304-3BD7948FB396}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Extensions.DependencyInjection", "Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj", "{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cowsay.Extensions.DependencyInjection", "src\Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj", "{AEFE9EFB-40DD-4C8C-876D-32CF7EEAAD19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI", "Cowsay.CLI\Cowsay.CLI.csproj", "{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI", "src\Cowsay.CLI\Cowsay.CLI.csproj", "{94C31F9D-5B62-49BB-A49C-F26CF8AE58C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI.Tests", "Cowsay.CLI.Tests\Cowsay.CLI.Tests.csproj", "{21A79425-1369-4E6C-A597-BD27F897E91B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay.CLI.Tests", "tests\Cowsay.CLI.Tests\Cowsay.CLI.Tests.csproj", "{21A79425-1369-4E6C-A597-BD27F897E91B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

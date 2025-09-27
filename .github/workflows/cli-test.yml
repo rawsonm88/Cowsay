@@ -5,15 +5,15 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'Cowsay.CLI/**'
-      - 'Cowsay/**'
-      - 'Cowsay.Abstractions/**'
+      - 'src/Cowsay.CLI/**'
+      - 'src/Cowsay/**'
+      - 'src/Cowsay.Abstractions/**'
   pull_request:
     branches: [ master ]
     paths:
-      - 'Cowsay.CLI/**'
-      - 'Cowsay/**'
-      - 'Cowsay.Abstractions/**'
+      - 'src/Cowsay.CLI/**'
+      - 'src/Cowsay/**'
+      - 'src/Cowsay.Abstractions/**'
 
 jobs:
   test-cli:
@@ -32,13 +32,13 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Build CLI tool
-      run: dotnet build Cowsay.CLI/Cowsay.CLI.csproj --configuration Release
+      run: dotnet build src/Cowsay.CLI/Cowsay.CLI.csproj --configuration Release
 
     - name: Pack CLI tool
-      run: dotnet pack Cowsay.CLI/Cowsay.CLI.csproj --configuration Release --no-build
+      run: dotnet pack src/Cowsay.CLI/Cowsay.CLI.csproj --configuration Release --no-build
 
     - name: Install CLI tool globally
-      run: dotnet tool install --global --add-source ./Cowsay.CLI/nupkg Cowsay.CLI
+      run: dotnet tool install --global --add-source ./src/Cowsay.CLI/nupkg Cowsay.CLI
 
     - name: Test basic usage
       run: |

@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Cowsay\Cowsay.csproj" />
+		<ProjectReference Include="..\..\src\Cowsay\Cowsay.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

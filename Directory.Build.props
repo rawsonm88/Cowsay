@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Mark Rawson</Authors>
+    <Product>Cowsay</Product>
+    <PackageProjectUrl>https://github.com/rawsonm88/Cowsay</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/rawsonm88/Cowsay/</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AnalysisMode>Default</AnalysisMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="" Visible="false" />
+  </ItemGroup>
+</Project>

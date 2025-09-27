@@ -12,8 +12,8 @@ namespace Cowsay
 
         public Cow(string cowFormat, IBubbleBlower bubbleGenerator)
         {
-            _cowFormat = cowFormat;
-            _bubbleGenerator = bubbleGenerator;
+            _cowFormat = cowFormat ?? throw new ArgumentNullException(nameof(cowFormat));
+            _bubbleGenerator = bubbleGenerator ?? throw new ArgumentNullException(nameof(bubbleGenerator));
         }
 
         public string Format => _cowFormat;

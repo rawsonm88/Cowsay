@@ -18,7 +18,8 @@ namespace Cowsay.UnitTests
                 .GetCowFormatAsync("default")
                 .Returns("abc$eyedef");
 
-            var factory = new DefaultCattleFarmer(provider, null);
+            var bubbleBlower = Substitute.For<IBubbleBlower>();
+            var factory = new DefaultCattleFarmer(provider, bubbleBlower);
 
             var cow = await factory.RearCowAsync("default");
 
@@ -30,7 +31,8 @@ namespace Cowsay.UnitTests
         {
             using (var memoryStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes("$the_cow = <<EOC;\r\nHello$eye$eye\r\nEOC")))
             {
-                var factory = new DefaultCattleFarmer(null, null);
+                var bubbleBlower = Substitute.For<IBubbleBlower>();
+                var factory = new DefaultCattleFarmer(null, bubbleBlower);
 
                 var cow = await factory.RearCowFromFileStreamAsync(memoryStream);
 

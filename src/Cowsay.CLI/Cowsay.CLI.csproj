@@ -11,13 +11,8 @@
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-		<Authors>Mark Rawson</Authors>
 		<Description>A configurable talking cow CLI tool.</Description>
-		<PackageProjectUrl>https://github.com/rawsonm88/Cowsay</PackageProjectUrl>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/rawsonm88/Cowsay/</RepositoryUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -29,8 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-        <None Include=".\README.md" Pack="true" PackagePath=""/>
-		<None Include="..\LICENSE" Pack="true" PackagePath=""/>
+		<None Include=".\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>

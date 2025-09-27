@@ -25,11 +25,11 @@ jobs:
         dotnet pack --configuration Release --no-build /p:Version=${{ github.event.release.tag_name }}
     - name: Push library packages to nuget.org
       run: |
-        dotnet nuget push ./Cowsay/bin/Release/Cowsay.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
-        dotnet nuget push ./Cowsay.Abstractions/bin/Release/Cowsay.Abstractions.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
-        dotnet nuget push ./Cowsay.Extensions.DependencyInjection/bin/Release/Cowsay.Extensions.DependencyInjection.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        dotnet nuget push ./src/Cowsay/bin/Release/Cowsay.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        dotnet nuget push ./src/Cowsay.Abstractions/bin/Release/Cowsay.Abstractions.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        dotnet nuget push ./src/Cowsay.Extensions.DependencyInjection/bin/Release/Cowsay.Extensions.DependencyInjection.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
     - name: Push CLI tool to nuget.org
       run: |
-        dotnet nuget push ./Cowsay.CLI/nupkg/Cowsay.CLI.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        dotnet nuget push ./src/Cowsay.CLI/nupkg/Cowsay.CLI.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
 
 
