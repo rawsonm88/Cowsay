@@ -19,10 +19,10 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore /p:Version=${{ github.event.release.tag_name }} /p:AssemblyVersion=${{ github.event.release.tag_name }}
+      run: dotnet build --configuration Release --no-restore /p:Version=${{ github.event.release.tag_name }} /p:AssemblyVersion=${{ github.event.release.tag_name }}
     - name: Pack all packages with version
       run: |
-        dotnet pack --no-build --configuration Release /p:Version=${{ github.event.release.tag_name }}
+        dotnet pack --configuration Release --no-build /p:Version=${{ github.event.release.tag_name }}
     - name: Push library packages to nuget.org
       run: |
         dotnet nuget push ./Cowsay/bin/Release/Cowsay.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
