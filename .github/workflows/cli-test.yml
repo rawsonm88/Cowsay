@@ -61,8 +61,8 @@ jobs:
 
     - name: Test custom parameters
       run: |
-        cowsay -e @@ "Custom eyes"
-        cowsay -t U "Custom tongue"
+        cowsay -e '@@' "Custom eyes"
+        cowsay -t 'U ' "Custom tongue"
         cowsay -w 20 "This is a long message that should wrap at 20 columns"
         cowsay -T "I'm thinking..."
 
