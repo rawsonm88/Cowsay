@@ -86,6 +86,32 @@ public class CommandLineParsingTests
     }
 
     [Fact]
+    public void FileOption_ShortFlag_ShouldParse()
+    {
+        var args = new[] { "-f", "test.cow", "Message" };
+        var parser = new Parser(with => with.HelpWriter = null);
+        var result = parser.ParseArguments<Options>(args);
+
+        result.Tag.ShouldBe(ParserResultType.Parsed);
+        var options = ((Parsed<Options>)result).Value;
+        options.File.ShouldBe("test.cow");
+        options.Message.ShouldBe("Message");
+    }
+
+    [Fact]
+    public void FileOption_LongFlag_ShouldParse()
+    {
+        var args = new[] { "--file", "my-custom.cow", "Message" };
+        var parser = new Parser(with => with.HelpWriter = null);
+        var result = parser.ParseArguments<Options>(args);
+
+        result.Tag.ShouldBe(ParserResultType.Parsed);
+        var options = ((Parsed<Options>)result).Value;
+        options.File.ShouldBe("my-custom.cow");
+        options.Message.ShouldBe("Message");
+    }
+
+    [Fact]
     public void MultipleOptions_ShouldParse()
     {
         var args = new[] { "-e", "xx", "-t", "U ", "-w", "30", "-c", "default", "Test message" };
@@ -99,6 +125,21 @@ public class CommandLineParsingTests
         options.Wrap.ShouldBe(30);
         options.Cow.ShouldBe("default");
         options.Message.ShouldBe("Test message");
+    }
+
+    [Fact]
+    public void FileWithOtherOptions_ShouldParse()
+    {
+        var args = new[] { "-f", "custom.cow", "-e", "@@", "-T", "Thinking" };
+        var parser = new Parser(with => with.HelpWriter = null);
+        var result = parser.ParseArguments<Options>(args);
+
+        result.Tag.ShouldBe(ParserResultType.Parsed);
+        var options = ((Parsed<Options>)result).Value;
+        options.File.ShouldBe("custom.cow");
+        options.Eyes.ShouldBe("@@");
+        options.Think.ShouldBeTrue();
+        options.Message.ShouldBe("Thinking");
     }
 
     [Fact]

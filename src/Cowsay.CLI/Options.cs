@@ -13,6 +13,9 @@ public class Options
     [Option('c', "cow", Default = "default", HelpText = "Choose a cow format (use -l to see all)")]
     public string Cow { get; set; } = "default";
 
+    [Option('f', "file", HelpText = "Load cow from a .cow file")]
+    public string? File { get; set; }
+
     [Option('e', "eyes", HelpText = "Set the cow's eyes (2 chars, e.g., '@@', 'xx', '$$')")]
     public string? Eyes { get; set; }
 

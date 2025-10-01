@@ -50,7 +50,20 @@ public class Program
 
         try
         {
-            ICow cow = await DefaultCattleFarmer.RearCowWithDefaults(opts.Cow);
+            var cowFormatProvider = new EmbeddedCowFormatProvider();
+            var bubbleBlower = new DefaultBubbleBlower();
+            var cattleFarmer = new DefaultCattleFarmer(cowFormatProvider, bubbleBlower);
+
+            ICow cow;
+            if (!string.IsNullOrEmpty(opts.File))
+            {
+                await using var fileStream = File.OpenRead(opts.File);
+                cow = await cattleFarmer.RearCowFromFileStreamAsync(fileStream);
+            }
+            else
+            {
+                cow = await cattleFarmer.RearCowAsync(opts.Cow);
+            }
 
             string output;
             if (opts.Think)
@@ -67,7 +80,14 @@ public class Program
         }
         catch (FileNotFoundException)
         {
-            await Console.Error.WriteLineAsync($"Error: Cow format '{opts.Cow}' not found. Use --list to see available formats.");
+            if (!string.IsNullOrEmpty(opts.File))
+            {
+                await Console.Error.WriteLineAsync($"Error: File '{opts.File}' not found.");
+            }
+            else
+            {
+                await Console.Error.WriteLineAsync($"Error: Cow format '{opts.Cow}' not found. Use --list to see available formats.");
+            }
             return 1;
         }
         catch (Exception ex)
