@@ -60,6 +60,7 @@ fortune | cowsay
 
 - `-l, --list` - List all available cow formats
 - `-c, --cow <name>` - Choose a cow format (default: "default")
+- `-f, --file <path|url>` - Load cow from a .cow file or URL
 - `-e, --eyes <chars>` - Set the cow's eyes (2 characters, e.g., '@@', 'xx', '$$')
 - `-t, --tongue <chars>` - Set the cow's tongue (2 characters, e.g., 'U ', '~ ')
 - `-w, --wrap <cols>` - Wrap text at N columns (default: 40)
@@ -121,6 +122,16 @@ cowsay -c tux "Linux rocks!"
 ### List Available Cows
 ```bash
 cowsay -l
+```
+
+### Load from Custom File
+```bash
+cowsay -f /path/to/custom.cow "Custom cow!"
+```
+
+### Load from URL
+```bash
+cowsay -f https://raw.githubusercontent.com/paulkaefer/cowsay-files/refs/heads/main/cows/dalek.cow "EXTERMINATE!"
 ```
 
 ## Building from Source
