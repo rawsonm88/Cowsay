@@ -17,10 +17,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommandLineParser" Version="2.9.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Cowsay\Cowsay.csproj" />
+		<ProjectReference Include="..\Cowsay.Extensions.DependencyInjection\Cowsay.Extensions.DependencyInjection.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using CommandLine;
-using Cowsay.CLI;
+using Cowsay.CLI.Infrastructure;
 using Shouldly;
 using Xunit;
 
